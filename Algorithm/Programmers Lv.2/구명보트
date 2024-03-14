@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Solution {
+    public int solution(int[] people, int limit) {
+        int answer = 0;
+        List<Integer> peopleSort = new ArrayList<>();
+        
+        for(int i : people){
+            peopleSort.add(i);
+        }
+        
+        Collections.sort(peopleSort);
+        
+        int index = 0;
+        
+        for (int i = peopleSort.size() - 1; i >= index; i--){
+            if(peopleSort.get(i) + peopleSort.get(index) <= limit){
+                index++;
+            }
+            answer++;
+        }
+        return answer;
+    }
+}
